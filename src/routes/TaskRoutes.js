@@ -14,7 +14,7 @@ router.get('/', AllTasks)
 
 router.post('/', createTask)
 
-router.put('/', updateTask)
+router.put('/:id', updateTask)
 
 router.delete('/:id', deleteTask)
 
