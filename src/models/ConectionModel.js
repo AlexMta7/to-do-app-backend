@@ -1,21 +1,14 @@
 import { Sequelize } from 'sequelize'
 import config from '../../config.js'
+import axios from 'axios'
 
-const db = new Sequelize({
-  database: config.DATABASE,
-  username: config.USERDB,
-  password: config.PASSWORDDB,
+const secret = await axios.get(
+  'https://mla1ac94og.execute-api.us-east-1.amazonaws.com/test/getSecret'
+)
+
+const db = new Sequelize(config.DATABASE, secret.data.username, secret.data.password, {
   host: config.HOSTDB,
-  port: config.PORTDB,
-  dialect: 'postgres',
-  // dialectOptions: {
-  //   dateStrings: true,
-  //   typeCast: true,
-  //   // ssl: {
-  //   //   require: true,
-  //   //   rejectUnauthorized: false,
-  //   // },
-  // },
+  dialect: 'mysql',
 })
 
 export default db
