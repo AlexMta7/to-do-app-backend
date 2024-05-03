@@ -6,9 +6,7 @@ import config from '../../config.js'
 export const connectDatabase = async () => {
   // const secret = getSecret()
 
-  const secret = await axios.get(
-    'https://mla1ac94og.execute-api.us-east-1.amazonaws.com/test/getSecret'
-  )
+  const secret = await axios.get(config.APIGateway)
 
   const sequelize = new Sequelize(
     config.DATABASE,

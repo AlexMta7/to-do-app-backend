@@ -11,4 +11,5 @@ export default {
   HOSTDB: process.env.DB_HOST,
   PORTDB: process.env.DB_PORT,
   SECRET_NAME: process.env.SECRET_NAME, // Nombre del Secreto en AWS Secrets Manager
+  APIGateway: process.env.API_GATEWAY_URL,
 }
